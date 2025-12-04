@@ -1,0 +1,331 @@
+/* =========================================
+   TKJ SMK Muhammadiyah 1 Metro - FINAL STYLE
+   (Logo Image + Realtime Clock + Soft Gradient)
+========================================= */
+
+/* --- 1. RESET & VARIABLES --- */
+:root {
+    /* Color Palette */
+    --muho-green: #007959;      
+    --muho-green-dark: #00523c; 
+    --muho-blue: #1a3c78;       
+    --muho-blue-dark: #0f2650;  
+    --muho-yellow: #fbb034;     
+    
+    /* Neutrals */
+    --bg-light: #f8fafc;
+    --text-primary: #1e293b;
+    --text-secondary: #475569;
+    --white: #ffffff;
+    --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+section { padding: 80px 0; }
+
+/* Tombol Global */
+.btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 12px 28px; border-radius: 50px;
+    font-weight: 600; text-decoration: none;
+    transition: all 0.3s ease; cursor: pointer; border: none;
+}
+.btn-primary { background-color: var(--muho-yellow); color: var(--muho-blue-dark); }
+.btn-primary:hover { background-color: #756e63; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(251, 176, 52, 0.4); }
+.btn-outline { border: 2px solid var(--white); color: var(--white); background: transparent; }
+.btn-outline:hover { background: var(--white); color: var(--muho-green); }
+
+/* Judul Section */
+.section-title {
+    text-align: center; font-size: 2.2rem; font-weight: 700;
+    color: var(--muho-blue); margin-bottom: 20px; position: relative;
+}
+.section-title::after {
+    content: ''; display: block; width: 60px; height: 4px;
+    background: var(--muho-yellow); margin: 15px auto 0; border-radius: 2px;
+}
+
+/* --- 3. TOP BAR & CLOCK --- */
+.top-bar {
+    background-color: var(--muho-blue-dark);
+    color: var(--white);
+    font-size: 0.85rem;
+    padding: 10px 0;
+}
+.top-bar-inner { display: flex; justify-content: space-between; align-items: center; }
+
+.top-contact ul { display: flex; list-style: none; gap: 20px; }
+.top-contact i { color: var(--muho-yellow); margin-right: 5px; }
+
+/* Style Jam Real-time */
+.top-clock {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 0.9rem; font-weight: 600;
+    color: var(--muho-yellow);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 15px; border-radius: 20px; letter-spacing: 0.5px;
+}
+.top-clock i { animation: pulse 2s infinite; }
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.top-social a { color: var(--white); margin-left: 15px; transition: color 0.3s; }
+.top-social a:hover { color: var(--muho-yellow); }
+
+/* --- 4. HEADER & NAV (DENGAN LOGO GAMBAR) --- */
+header#header {
+    background: var(--white); box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+    position: sticky; top: 0; z-index: 1000; padding: 15px 0;
+}
+.header-content { display: flex; justify-content: space-between; align-items: center; }
+
+/* === UPDATE LOGO CSS === */
+.logo {
+    display: flex;
+    align-items: center; /* Agar vertikal di tengah */
+    gap: 12px;           /* Jarak antara Gambar dan Teks */
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 50px;        /* Tinggi logo */
+    width: auto;         /* Lebar otomatis agar proporsional */
+    object-fit: contain; 
+}
+
+.logo-text-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-title { font-weight: 800; font-size: 1.2rem; color: var(--muho-blue); line-height: 1; }
+.logo-subtitle { font-size: 0.8rem; color: var(--text-secondary); }
+
+/* Navigation */
+nav ul { display: flex; list-style: none; gap: 30px; align-items: center; }
+nav a {
+    text-decoration: none; color: var(--text-secondary);
+    font-weight: 500; font-size: 0.95rem; transition: color 0.3s;
+}
+nav a:hover, nav a.active { color: var(--muho-green); }
+.mobile-menu-btn { display: none; }
+
+/* --- 5. HERO SECTION --- */
+.hero {
+    /* Gradasi overlay Hero: Hijau (atas) ke Biru (bawah) */
+    background: linear-gradient(rgba(0, 121, 89, 0.9), rgba(26, 60, 120, 0.9)), url('../images/hero-bg.jpg'); 
+    background-size: cover; background-position: center;
+    color: var(--white); padding: 120px 0; position: relative;
+}
+.hero-content { max-width: 700px; }
+.hero-badge {
+    background: rgba(255,255,255,0.1); display: inline-block;
+    padding: 5px 15px; border-radius: 20px; font-size: 0.9rem;
+    margin-bottom: 20px; backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2);
+}
+.hero-title { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; }
+.hero-description { font-size: 1.1rem; opacity: 0.9; margin-bottom: 40px; max-width: 600px; }
+.cta-buttons { display: flex; gap: 15px; }
+
+/* --- 6. PROGRAMS (Background Gradasi Halus & Menyatu) --- */
+.programs {
+    /* UPDATED: Menggunakan BIRU (var(--muho-blue)) di awal
+       agar menyatu dengan bagian bawah Hero yang juga biru. 
+       Gradasi mengalir ke kuning transparan di bawah. */
+    background: linear-gradient(180deg, var(--muho-blue) 0%, rgba(251, 176, 52, 0.4) 100%);
+    
+    position: relative; z-index: 1;
+}
+.programs .section-title { color: var(--white); text-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+.programs .section-title::after { background: var(--white); }
+
+.programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; }
+.program-card {
+    background: var(--white); border-radius: 15px; padding: 30px 25px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: transform 0.3s ease;
+    border-bottom: 4px solid transparent;
+}
+.program-card:hover { transform: translateY(-10px); border-bottom-color: var(--muho-yellow); }
+.icon-wrapper {
+    width: 60px; height: 60px; background: #e2fdf5; color: var(--muho-green);
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    font-size: 1.5rem; margin-bottom: 20px;
+}
+.program-card h3 { font-size: 1.25rem; font-weight: 700; margin-bottom: 10px; color: var(--muho-blue); }
+.program-card p { color: var(--text-secondary); font-size: 0.9rem; }
+
+/* --- 7. CAREER & FOOTER --- */
+.career-section { background: var(--muho-blue-dark); color: white; }
+.career-section .section-title { color: white; }
+.career-grid { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.career-item {
+    background: rgba(255, 255, 255, 0.1); padding: 20px 30px;
+    border-radius: 10px; font-weight: 600; color: var(--white);
+    display: flex; flex-direction: column; align-items: center; gap: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2); min-width: 150px;
+}
+.career-item i { font-size: 2rem; color: var(--muho-yellow); }
+
+footer { background: #0a1930; color: white; padding-top: 60px; }
+.footer-content {
+    display: flex; justify-content: space-between; flex-wrap: wrap;
+    gap: 40px; padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer-brand h3, .footer-contact i { color: var(--muho-yellow); }
+.footer-contact ul { list-style: none; }
+.footer-contact li { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: rgba(255,255,255,0.8); }
+.copyright { text-align: center; padding: 20px 0; font-size: 0.9rem; color: rgba(255,255,255,0.6); }
+
+/* --- 8. RESPONSIVE --- */
+@media (max-width: 991px) {
+    .top-bar { display: none; } /* Sembunyikan topbar/jam di tablet/mobile */
+}
+
+/* =========================================
+   9. HALAMAN TEAM / DEVELOPER
+   (Grid Rapi & Foto Bulat Sempurna)
+========================================= */
+
+/* Container Utama */
+.team-section {
+    background-color: var(--bg-light);
+    padding: 60px 0 100px;
+}
+
+/* Grid System: Otomatis menyesuaikan jumlah kolom */
+.team-grid {
+    display: grid;
+    /* Minimal lebar kartu 260px, jika layar lebar akan bertambah kolomnya */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 40px;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+/* Kartu Anggota */
+.team-card {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 40px 25px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border-top: 4px solid transparent; /* Garis atas transparan */
+    position: relative;
+}
+
+/* Efek saat mouse diarahkan ke kartu */
+.team-card:hover {
+    transform: translateY(-10px); /* Naik sedikit */
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+    border-top-color: var(--muho-yellow); /* Muncul garis kuning di atas */
+}
+
+/* --- PEMBUAT FOTO BULAT (INTI KODE) --- */
+.profile-box {
+    width: 140px;          /* Lebar Lingkaran */
+    height: 140px;         /* Tinggi harus SAMA dengan lebar */
+    margin: 0 auto 20px;   /* Posisi tengah */
+    position: relative;
+    border-radius: 50%;    /* Membuat wadah jadi bulat */
+    border: 4px solid var(--muho-yellow); /* List pinggir kuning */
+    padding: 3px;          /* Jarak antara foto dan list kuning */
+    background: #fff;
+    overflow: hidden;      /* Memotong sudut foto yang keluar */
+}
+
+.profile-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;    
+    object-fit: cover;     /* PENTING: Agar foto crop otomatis (tidak gepeng) */
+    object-position: top center; /* Fokus ke wajah (tengah atas) */
+    transition: transform 0.5s ease;
+}
+
+/* Efek Zoom foto saat hover */
+.team-card:hover .profile-box img {
+    transform: scale(1.1);
+}
+
+/* Teks Nama */
+.team-card h3 {
+    color: var(--muho-blue);
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+/* Teks Jabatan */
+.team-card .role {
+    display: inline-block;
+    color: var(--muho-green);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    background: #e2fdf5;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+/* Deskripsi Singkat */
+.team-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Ikon Sosial Media */
+.team-social {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.team-social a {
+    color: #ccc;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.team-social a:hover {
+    color: var(--muho-blue);
+}
+/* --- BUTTON BIODATA DI DALAM CARD --- */
+.btn-bio {
+    display: inline-block;
+    margin: 15px 0; /* Jarak atas bawah */
+    padding: 8px 25px;
+    background-color: var(--muho-blue); /* Warna Biru Muho */
+    color: var(--white);
+    border-radius: 50px; /* Bentuk kapsul */
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.btn-bio:hover {
+    background-color: var(--muho-yellow); /* Berubah Kuning saat disentuh */
+    color: var(--muho-blue-dark);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}

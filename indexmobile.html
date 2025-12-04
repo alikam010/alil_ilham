@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#1a3c78">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <title>TKJ Mobile App</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* --- 1. RESET & VARIABLES --- */
+        :root {
+            --app-green: #007959;
+            --app-blue: #1a3c78;
+            --app-yellow: #fbb034;
+            --app-white: #ffffff;
+            --app-text: #1e293b;
+            --shadow-soft: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(160deg, var(--app-blue) 0%, var(--app-green) 100%);
+            background-attachment: fixed;
+            color: var(--app-text);
+            
+            /* PENTING: Padding ini mencegah konten tertutup Header/Footer */
+            padding-top: 100px;    /* Memberi ruang lebih untuk Header */
+            padding-bottom: 120px; /* Memberi ruang lebih untuk Navigasi Bawah */
+            
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        /* --- 2. HEADER (FIXED TOP) --- */
+        .app-header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            height: 75px; /* Sedikit diperbesar agar lega */
+            background: var(--app-white);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 25px;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-bottom-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+        }
+
+        .header-profile { display: flex; align-items: center; gap: 12px; }
+        .profile-pic {
+            width: 45px; height: 45px; background: #e0f2fe; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--app-blue); font-size: 1.2rem;
+            border: 2px solid white;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-info h1 { font-size: 1rem; font-weight: 700; color: var(--app-blue); margin: 0; line-height: 1.2; }
+        .header-info p { font-size: 0.75rem; color: #666; margin: 0; }
+
+        .header-notif {
+            width: 42px; height: 42px; background: #fff; border: 1px solid #f0f0f0;
+            border-radius: 14px; display: flex; align-items: center; justify-content: center;
+            color: var(--app-text); position: relative;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .badge {
+            position: absolute; top: 10px; right: 10px; width: 8px; height: 8px;
+            background: #ef4444; border-radius: 50%;
+        }
+
+        /* --- 3. HERO BANNER --- */
+        .hero-section { padding: 0 20px 25px; } /* Padding atas 0 karena sudah dihandle body */
+        .hero-card {
+            background: rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border-radius: 25px; padding: 30px 25px; color: white;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+            position: relative; overflow: hidden;
+            text-align: center;
+        }
+        .hero-card h2 { font-size: 1.6rem; margin-bottom: 8px; position: relative; z-index: 2; font-weight: 800; letter-spacing: 1px; }
+        .hero-card p { font-size: 0.9rem; opacity: 0.95; margin: 0 auto 20px; position: relative; z-index: 2; max-width: 90%; line-height: 1.5; }
+        
+        .btn-daftar {
+            background: var(--app-yellow); color: #003323; padding: 12px 30px;
+            border-radius: 50px; font-size: 0.9rem; font-weight: 700;
+            text-decoration: none; display: inline-block; position: relative; z-index: 2;
+            box-shadow: 0 5px 15px rgba(251, 176, 52, 0.4);
+            transition: transform 0.2s;
+        }
+        .btn-daftar:active { transform: scale(0.95); }
+
+        /* --- 4. QUICK MENU (RAPI & AMAN) --- */
+        .quick-menu {
+            display: grid; 
+            grid-template-columns: repeat(4, 1fr); /* 4 Kolom Otomatis */
+            gap: 15px; /* Jarak antar ikon */
+            padding: 0 20px 35px;
+            justify-items: center;
+        }
+        .menu-item {
+            display: flex; flex-direction: column; align-items: center;
+            text-decoration: none; gap: 8px; width: 100%;
+        }
+        .icon-box {
+            width: 100%; max-width: 65px; /* Responsif: Max 65px, tapi bisa mengecil di HP kecil */
+            aspect-ratio: 1/1; /* Memastikan tetap kotak */
+            background: white; border-radius: 20px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.6rem; box-shadow: var(--shadow-soft);
+            transition: transform 0.2s;
+        }
+        .menu-item:active .icon-box { transform: scale(0.9); }
+        .menu-label { font-size: 0.75rem; color: white; font-weight: 500; text-align: center; white-space: nowrap; }
+
+        .ic-1 { color: #fbb034; }
+        .ic-2 { color: #3b82f6; }
+        .ic-3 { color: #ef4444; }
+        .ic-4 { color: #10b981; }
+
+        /* --- 5. HORIZONTAL SCROLL (ANTI POTONG) --- */
+        .section-title {
+            padding: 0 25px; font-size: 1.1rem; font-weight: 700;
+            margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;
+            color: white; 
+        }
+        .see-all { font-size: 0.8rem; color: rgba(255,255,255,0.9); text-decoration: none; }
+
+        .horizontal-scroll {
+            display: flex; overflow-x: auto; gap: 15px;
+            /* Padding kanan lebih besar agar kartu terakhir tidak mepet layar */
+            padding: 0 25px 25px 25px; 
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* Firefox */
+        }
+        .horizontal-scroll::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+
+        .program-card-mini {
+            min-width: 145px; /* Lebar minimum agar tidak gepeng */
+            background: white; padding: 20px 15px;
+            border-radius: 22px; box-shadow: var(--shadow-soft);
+            scroll-snap-align: start; 
+            display: flex; flex-direction: column; 
+            align-items: center; text-align: center; 
+            gap: 12px;
+        }
+        
+        .mini-icon {
+            width: 50px; height: 50px; 
+            background: #f0fdf4; color: var(--app-green);
+            border-radius: 16px; 
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.3rem;
+        }
+        .program-card-mini h3 { font-size: 0.9rem; margin: 0; color: var(--app-text); font-weight: 700; }
+        .program-card-mini span { font-size: 0.75rem; color: #888; }
+
+        /* --- 6. LIST VERTICAL --- */
+        .vertical-list { padding: 0 25px; display: flex; flex-direction: column; gap: 15px; }
+        .info-card {
+            background: white; padding: 18px 20px; border-radius: 20px;
+            display: flex; align-items: center; gap: 15px; box-shadow: var(--shadow-soft);
+        }
+        .info-thumb {
+            width: 50px; height: 50px; border-radius: 14px;
+            display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+        .info-text h4 { font-size: 1rem; margin: 0; color: var(--app-text); font-weight: 600; }
+        .info-text p { font-size: 0.75rem; color: #666; margin: 4px 0 0; }
+        .arrow-right { margin-left: auto; color: #ddd; font-size: 1rem; }
+
+        /* --- 7. BOTTOM NAVIGATION (FIXED BOTTOM) --- */
+        .bottom-nav {
+            position: fixed; bottom: 0; left: 0; width: 100%; height: 85px;
+            background: white;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            display: flex; justify-content: space-around; align-items: center;
+            padding-bottom: 15px; z-index: 1000;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.08);
+        }
+        .nav-item {
+            display: flex; flex-direction: column; align-items: center;
+            text-decoration: none; color: #cbd5e1; font-size: 0.7rem; gap: 6px; width: 60px;
+        }
+        .nav-item i { font-size: 1.5rem; transition: 0.3s; }
+        .nav-item.active { color: var(--app-green); font-weight: 600; }
+        .nav-item.active i { transform: translateY(-3px); }
+
+        /* Tombol Tengah Presisi */
+        .nav-item-center {
+            width: 65px; height: 65px; 
+            background: linear-gradient(135deg, var(--app-green) 0%, #059669 100%);
+            border-radius: 50%; 
+            display: flex; align-items: center; justify-content: center;
+            color: white; 
+            margin-top: -40px; 
+            box-shadow: 0 10px 25px rgba(0, 121, 89, 0.4);
+            border: 6px solid #f2f7f9; /* Border menyesuaikan background body bagian bawah */
+            transition: transform 0.2s;
+        }
+        .nav-item-center:active { transform: scale(0.9); }
+        .nav-item-center i { font-size: 1.8rem; }
+
+    </style>
+</head>
+<body>
+
+    <header class="app-header">
+        <div class="header-profile">
+            <div class="profile-pic"><i class="fas fa-user"></i></div>
+            <div class="header-info">
+                <h1>Halo, Siswa!</h1>
+                <p id="realtimeClock">Memuat...</p>
+            </div>
+        </div>
+        <div class="header-notif">
+            <i class="far fa-bell"></i>
+            <span class="badge"></span>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-card">
+            <h2>TKJ MUTU</h2>
+            <p>Siap mencetak teknisi handal dan ahli jaringan masa depan.</p>
+            <a href="https://ppdb.smkmuh1metro.sch.id" class="btn-daftar">
+                Daftar Sekarang <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    </section>
+
+    <div class="quick-menu">
+        <a href="#materi" class="menu-item">
+            <div class="icon-box"><i class="fas fa-book ic-4"></i></div>
+            <span class="menu-label">Materi</span>
+        </a>
+        <a href="biodata/index.html" class="menu-item">
+            <div class="icon-box"><i class="fas fa-id-card ic-2"></i></div>
+            <span class="menu-label">Biodata</span>
+        </a>
+        <a href="kelompok.html" class="menu-item">
+            <div class="icon-box"><i class="fas fa-users ic-1"></i></div>
+            <span class="menu-label">Tim</span>
+        </a>
+        <a href="https://wa.me/6281335180263" class="menu-item">
+            <div class="icon-box"><i class="fab fa-whatsapp ic-3"></i></div>
+            <span class="menu-label">Kontak</span>
+        </a>
+    </div>
+
+    <section>
+        <div class="section-title">
+            <span>Program Unggulan</span>
+            <a href="#" class="see-all">Lihat Semua</a>
+        </div>
+        <div class="horizontal-scroll">
+            <div class="program-card-mini">
+                <div class="mini-icon"><i class="fas fa-wifi"></i></div>
+                <h3>Fiber Optik</h3>
+                <span>Jaringan</span>
+            </div>
+            <div class="program-card-mini">
+                <div class="mini-icon"><i class="fas fa-server"></i></div>
+                <h3>Server</h3>
+                <span>Admin Sys</span>
+            </div>
+            <div class="program-card-mini">
+                <div class="mini-icon"><i class="fas fa-code"></i></div>
+                <h3>Coding</h3>
+                <span>Web Dev</span>
+            </div>
+            <div class="program-card-mini">
+                <div class="mini-icon"><i class="fas fa-tools"></i></div>
+                <h3>Hardware</h3>
+                <span>Teknisi PC</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title">
+            <span>Info Terbaru</span>
+        </div>
+        <div class="vertical-list">
+            <a href="kelompok.html" style="text-decoration:none; color:inherit;">
+                <div class="info-card">
+                    <div class="info-thumb" style="background:#eef2ff; color:#4f46e5;">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="info-text">
+                        <h4>Tim Developer Website</h4>
+                        <p>Kenalan dengan pembuat web ini</p>
+                    </div>
+                    <i class="fas fa-chevron-right arrow-right"></i>
+                </div>
+            </a>
+            
+            <a href="index.html?desktop=true" style="text-decoration:none; color:inherit;">
+                <div class="info-card">
+                    <div class="info-thumb" style="background:#fff7ed; color:#ea580c;">
+                        <i class="fas fa-desktop"></i>
+                    </div>
+                    <div class="info-text">
+                        <h4>Tampilan Desktop</h4>
+                        <p>Beralih ke mode PC/Laptop</p>
+                    </div>
+                    <i class="fas fa-chevron-right arrow-right"></i>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <nav class="bottom-nav">
+        <a href="#" class="nav-item active">
+            <i class="fas fa-home"></i>
+            <span>Home</span>
+        </a>
+        <a href="#materi" class="nav-item">
+            <i class="fas fa-book-open"></i>
+            <span>Belajar</span>
+        </a>
+        
+        <a href="https://ppdb.smkmuh1metro.sch.id" class="nav-item">
+            <div class="nav-item-center">
+                <i class="fas fa-plus"></i>
+            </div>
+        </a>
+
+        <a href="kelompok.html" class="nav-item">
+            <i class="fas fa-user-friends"></i>
+            <span>Tim</span>
+        </a>
+        <a href="biodata/index.html" class="nav-item">
+            <i class="fas fa-user-circle"></i>
+            <span>Akun</span>
+        </a>
+    </nav>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const options = { weekday: 'long', day: 'numeric', month: 'short' };
+            const dateStr = now.toLocaleDateString('id-ID', options);
+            document.getElementById('realtimeClock').textContent = dateStr;
+        }
+        setInterval(updateClock, 1000);
+        updateClock();
+
+        const navItems = document.querySelectorAll('.nav-item');
+        navItems.forEach(item => {
+            item.addEventListener('click', function() {
+                navItems.forEach(nav => nav.classList.remove('active'));
+                if(!this.querySelector('.nav-item-center')) {
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

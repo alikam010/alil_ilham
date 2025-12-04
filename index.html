@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TKJ - SMK Muhammadiyah 1 Metro</title>
+    
+    <script>
+        // Cek lebar layar. Jika di bawah 768px DAN bukan mode paksa desktop
+        if (window.innerWidth <= 768 && !window.location.search.includes('desktop=true')) {
+            window.location.href = "indexmobile.html";
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-inner">
+                
+                <div class="top-contact">
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> smkmutumetro@gmail.com</li>
+                        <li><i class="fas fa-phone"></i> 081335180263 </li>
+                    </ul>
+                </div>
+
+                <div class="top-clock">
+                    <i class="far fa-clock"></i> 
+                    <span id="realtimeClock">Memuat Waktu...</span>
+                </div>
+
+                <div class="top-social">
+                    <span>Ikuti Kami:</span>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+   <header id="header">
+    <div class="container">
+        <div class="header-content">
+            <a href="#" class="logo">
+                
+                <img src="images|tkj.png" alt="Logo TKJ" class="logo-image">
+                
+                <div class="logo-text-group">
+                    <span class="logo-title">TKJ MUTU</span>
+                    <span class="logo-subtitle">Teknik Komputer & Jaringan</span>
+                </div>
+            </a>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#" class="active">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#materi">Program</a></li>
+                    <li><a href="developer.html">Tim Kami</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-action">
+                <a href="https://ppdb.smkmuh1metro.sch.id" target="_blank" class="btn btn-primary">
+                    Daftar PPDB <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">Generasi Digital Terbaik</span>
+                <h1 class="hero-title">Ahli Jaringan & <br>Teknologi Masa Depan</h1>
+                <p class="hero-description">
+                    Bergabunglah dengan jurusan Teknik Komputer dan Jaringan SMK Muhammadiyah 1 Metro. 
+                    Kami mencetak teknisi handal yang siap kerja dan berwirausaha.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#materi" class="btn btn-primary">Jelajahi Materi</a>
+                    <a href="#contact" class="btn btn-outline">Hubungi Kami</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="materi" class="programs">
+        <div class="container">
+            <h2 class="section-title">Program Unggulan</h2>
+            <div class="programs-grid">
+                <div class="program-card">
+                    <div class="icon-wrapper"><i class="fas fa-wifi"></i></div>
+                    <h3>Fiber Optik & Wireless</h3>
+                    <p>Mempelajari instalasi jaringan internet berbasis kabel optik dan teknologi nirkabel terkini.</p>
+                </div>
+                <div class="program-card">
+                    <div class="icon-wrapper"><i class="fas fa-server"></i></div>
+                    <h3>Admin Server</h3>
+                    <p>Konfigurasi server (Linux/Windows), MikroTik, Cisco, dan manajemen keamanan data.</p>
+                </div>
+                <div class="program-card">
+                    <div class="icon-wrapper"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Web & IoT</h3>
+                    <p>Dasar pemrograman web dan Internet of Things (IoT) untuk menciptakan solusi rumah pintar.</p>
+                </div>
+                <div class="program-card">
+                    <div class="icon-wrapper"><i class="fas fa-tools"></i></div>
+                    <h3>Hardware Repair</h3>
+                    <p>Perakitan komputer, instalasi sistem operasi, dan perbaikan perangkat keras laptop/PC.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="karir" class="career-section">
+        <div class="container">
+            <h2 class="section-title">Prospek Karir Lulusan</h2>
+            <div class="career-grid">
+                <div class="career-item"><i class="fas fa-check-circle"></i> Network Engineer</div>
+                <div class="career-item"><i class="fas fa-check-circle"></i> System Administrator</div>
+                <div class="career-item"><i class="fas fa-check-circle"></i> IT Support Specialist</div>
+                <div class="career-item"><i class="fas fa-check-circle"></i> Teknisi Fiber Optik</div>
+                <div class="career-item"><i class="fas fa-check-circle"></i> Wirausaha Service Komputer</div>
+                <div class="career-item"><i class="fas fa-check-circle"></i> CCTV Installer</div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SMK Muhammadiyah 1 Metro</h3>
+                    <p>Program Keahlian Teknik Komputer & Jaringan.<br>Pusat keunggulan teknologi di Kota Metro.</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>Hubungi Kami</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> <span> Jl. Tawes 21 Polos Yosodadi Metro Timur Kota Metro.</span></li>
+                        <li><i class="fas fa-phone"></i> <span>081335180263</span></li>
+                        <li><i class="fas fa-envelope"></i> <span>smkmutumetro@gmail.com</span></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+    <h3>Akses Cepat</h3>
+    <ul>
+        <li><a href="https://ppdb.smkmuh1metro.sch.id" style="color:white; text-decoration:none;">Portal PPDB</a></li>
+        
+        <li><a href="developer.html" style="color:white; text-decoration:none;">Tim Developer</a></li>
+    </ul>
+</div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 TKJ SMK Muhammadiyah 1 Metro. Brilliant School.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

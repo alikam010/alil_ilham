@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tim Developer - TKJ SMK Muhammadiyah 1 Metro</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-inner">
+                <div class="top-contact">
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> smkmutumetro@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="top-clock">
+                    <i class="far fa-clock"></i> 
+                    <span id="realtimeClock">Memuat Waktu...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header id="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="index.html" class="logo">
+                    <img src="images/tkj.png" alt="Logo TKJ" class="logo-image">
+                    <div class="logo-text-group">
+                        <span class="logo-title">TKJ MUTU</span>
+                        <span class="logo-subtitle">Teknik Komputer & Jaringan</span>
+                    </div>
+                </a>
+                
+                <nav id="mainNav">
+                    <ul>
+                        <li><a href="index.html">Beranda</a></li>
+                        <li><a href="index.html#about">Tentang</a></li>
+                        <li><a href="index.html#materi">Program</a></li>
+                        <li><a href="developer.html" class="active">Tim Kami</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-action">
+                    <a href="index.html" class="btn btn-outline" style="border-color: var(--muho-blue); color: var(--muho-blue);">
+                        <i class="fas fa-home"></i> Kembali
+                    </a>
+                </div>
+                
+                <button id="mobileMenuBtn" class="mobile-menu-btn" style="display: none;">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="padding: 80px 0; min-height: auto; background: linear-gradient(rgba(0, 82, 60, 0.9), rgba(15, 38, 80, 0.9)); text-align: center;">
+        <div class="container">
+            <span class="hero-badge" style="margin-bottom: 10px;">Behind The Scene</span>
+            <h1 style="font-size: 2.5rem; margin-bottom: 10px;">Tim Pengembang</h1>
+            <p style="opacity: 0.9; max-width: 600px; margin: 0 auto;">
+                Siswa-siswi terbaik yang berkontribusi dalam pembangunan website profil jurusan.
+            </p>
+        </div>
+    </section>
+
+    <section class="team-section">
+        <div class="container">
+            <h2 class="section-title">Meet The Team</h2>
+            
+            <div class="team-grid">
+                
+                <div class="team-card">
+                    <div class="profile-box">
+                        <img src="images/ali.jpg" alt="Foto Ali">
+                    </div>
+                    <h3>Nama Siswa 1</h3>
+                    <span class="role">Project Manager</span>
+                    <p>Mengkoordinasikan tim dan memastikan fitur website berjalan sesuai rencana.</p>
+                    
+                    <a href="biodata/index.html" class="btn-bio">
+                        <i class="fas fa-user"></i> Lihat Biodata
+                    </a>
+
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <div class="team-card">
+                    <div class="profile-box">
+                        <img src="images/ilham.jpg" alt="Foto Siswa 3">
+                    </div>
+                    <h3>Nama Siswa 2</h3>
+                    <span class="role">UI/UX Designer</span>
+                    <p>Merancang tata letak dan pengalaman pengguna agar website nyaman dilihat.</p>
+                    
+                    <a href="ilham/index.html" class="btn-bio">
+                        <i class="fas fa-user"></i> Lihat Biodata
+                    </a>
+
+                    <div class="team-social">
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3>SMK Muhammadiyah 1 Metro</h3>
+                    <p>Mencetak teknisi handal yang berakhlak mulia dan berkemajuan.</p>
+                </div>
+                <div class="footer-contact">
+                    <h3>Navigasi</h3>
+                    <ul>
+                        <li><a href="index.html" style="color:rgba(255,255,255,0.7); text-decoration: none;">Kembali ke Beranda</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 TKJ SMK Muhammadiyah 1 Metro. Tim Developer.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    
+    <script>
+        const menuBtn = document.getElementById('mobileMenuBtn');
+        const navList = document.querySelector('#mainNav ul');
+        
+        if(menuBtn) {
+            menuBtn.addEventListener('click', () => {
+                navList.classList.toggle('show');
+            });
+        }
+    </script>
+</body>
+</html>
