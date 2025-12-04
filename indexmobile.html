@@ -32,8 +32,8 @@
             color: var(--app-text);
             
             /* PENTING: Padding ini mencegah konten tertutup Header/Footer */
-            padding-top: 100px;    /* Memberi ruang lebih untuk Header */
-            padding-bottom: 120px; /* Memberi ruang lebih untuk Navigasi Bawah */
+            padding-top: 100px;    
+            padding-bottom: 120px; 
             
             overflow-x: hidden;
             min-height: 100vh;
@@ -43,7 +43,7 @@
         .app-header {
             position: fixed;
             top: 0; left: 0; right: 0;
-            height: 75px; /* Sedikit diperbesar agar lega */
+            height: 75px; 
             background: var(--app-white);
             display: flex;
             align-items: center;
@@ -79,7 +79,7 @@
         }
 
         /* --- 3. HERO BANNER --- */
-        .hero-section { padding: 0 20px 25px; } /* Padding atas 0 karena sudah dihandle body */
+        .hero-section { padding: 0 20px 25px; } 
         .hero-card {
             background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.25);
@@ -101,11 +101,11 @@
         }
         .btn-daftar:active { transform: scale(0.95); }
 
-        /* --- 4. QUICK MENU (RAPI & AMAN) --- */
+        /* --- 4. QUICK MENU --- */
         .quick-menu {
             display: grid; 
-            grid-template-columns: repeat(4, 1fr); /* 4 Kolom Otomatis */
-            gap: 15px; /* Jarak antar ikon */
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 15px; 
             padding: 0 20px 35px;
             justify-items: center;
         }
@@ -114,8 +114,8 @@
             text-decoration: none; gap: 8px; width: 100%;
         }
         .icon-box {
-            width: 100%; max-width: 65px; /* Responsif: Max 65px, tapi bisa mengecil di HP kecil */
-            aspect-ratio: 1/1; /* Memastikan tetap kotak */
+            width: 100%; max-width: 65px; 
+            aspect-ratio: 1/1; 
             background: white; border-radius: 20px;
             display: flex; align-items: center; justify-content: center;
             font-size: 1.6rem; box-shadow: var(--shadow-soft);
@@ -129,7 +129,7 @@
         .ic-3 { color: #ef4444; }
         .ic-4 { color: #10b981; }
 
-        /* --- 5. HORIZONTAL SCROLL (ANTI POTONG) --- */
+        /* --- 5. HORIZONTAL SCROLL --- */
         .section-title {
             padding: 0 25px; font-size: 1.1rem; font-weight: 700;
             margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center;
@@ -139,15 +139,14 @@
 
         .horizontal-scroll {
             display: flex; overflow-x: auto; gap: 15px;
-            /* Padding kanan lebih besar agar kartu terakhir tidak mepet layar */
             padding: 0 25px 25px 25px; 
             scroll-snap-type: x mandatory;
-            scrollbar-width: none; /* Firefox */
+            scrollbar-width: none; 
         }
-        .horizontal-scroll::-webkit-scrollbar { display: none; /* Chrome/Safari */ }
+        .horizontal-scroll::-webkit-scrollbar { display: none; }
 
         .program-card-mini {
-            min-width: 145px; /* Lebar minimum agar tidak gepeng */
+            min-width: 145px; 
             background: white; padding: 20px 15px;
             border-radius: 22px; box-shadow: var(--shadow-soft);
             scroll-snap-align: start; 
@@ -166,6 +165,39 @@
         .program-card-mini h3 { font-size: 0.9rem; margin: 0; color: var(--app-text); font-weight: 700; }
         .program-card-mini span { font-size: 0.75rem; color: #888; }
 
+        /* --- TAMBAHAN: CAREER GRID (PROSPEK KARIR) --- */
+        .career-grid {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px;
+            padding: 0 25px 25px;
+        }
+        .career-card {
+            background: white; padding: 15px; border-radius: 18px;
+            display: flex; flex-direction: column; gap: 8px;
+            box-shadow: var(--shadow-soft);
+        }
+        .career-card i { color: var(--app-green); font-size: 1.2rem; }
+        .career-card span { font-size: 0.8rem; font-weight: 600; color: var(--app-text); line-height: 1.3; }
+
+        /* --- TAMBAHAN: TEAM MEMBERS (ANGGOTA) --- */
+        .team-scroll {
+            display: flex; overflow-x: auto; gap: 15px;
+            padding: 0 25px 25px; scrollbar-width: none;
+        }
+        .team-card-mini {
+            min-width: 120px; background: rgba(255,255,255,0.1); 
+            border: 1px solid rgba(255,255,255,0.2); backdrop-filter: blur(5px);
+            padding: 15px 10px; border-radius: 20px;
+            display: flex; flex-direction: column; align-items: center;
+            text-align: center;
+        }
+        .team-avatar {
+            width: 50px; height: 50px; background: white; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            color: var(--app-blue); font-size: 1.2rem; margin-bottom: 10px;
+        }
+        .team-info h4 { color: white; font-size: 0.85rem; margin-bottom: 2px; }
+        .team-info p { color: rgba(255,255,255,0.7); font-size: 0.65rem; }
+
         /* --- 6. LIST VERTICAL --- */
         .vertical-list { padding: 0 25px; display: flex; flex-direction: column; gap: 15px; }
         .info-card {
@@ -180,6 +212,22 @@
         .info-text h4 { font-size: 1rem; margin: 0; color: var(--app-text); font-weight: 600; }
         .info-text p { font-size: 0.75rem; color: #666; margin: 4px 0 0; }
         .arrow-right { margin-left: auto; color: #ddd; font-size: 1rem; }
+
+        /* --- TAMBAHAN: FOOTER & SOSMED --- */
+        .app-footer {
+            padding: 30px 25px 0; text-align: center; color: white;
+        }
+        .social-links {
+            display: flex; justify-content: center; gap: 15px; margin: 20px 0;
+        }
+        .social-icon {
+            width: 45px; height: 45px; background: rgba(255,255,255,0.15);
+            border-radius: 50%; display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 1.2rem; text-decoration: none;
+            backdrop-filter: blur(5px); border: 1px solid rgba(255,255,255,0.2);
+        }
+        .footer-address { font-size: 0.7rem; opacity: 0.8; line-height: 1.6; margin-bottom: 15px; }
+        .copyright { font-size: 0.65rem; opacity: 0.6; }
 
         /* --- 7. BOTTOM NAVIGATION (FIXED BOTTOM) --- */
         .bottom-nav {
@@ -208,7 +256,7 @@
             color: white; 
             margin-top: -40px; 
             box-shadow: 0 10px 25px rgba(0, 121, 89, 0.4);
-            border: 6px solid #f2f7f9; /* Border menyesuaikan background body bagian bawah */
+            border: 6px solid #f2f7f9; 
             transition: transform 0.2s;
         }
         .nav-item-center:active { transform: scale(0.9); }
@@ -237,7 +285,7 @@
             <h2>TKJ MUTU</h2>
             <p>Siap mencetak teknisi handal dan ahli jaringan masa depan.</p>
             <a href="https://ppdb.smkmuh1metro.sch.id" class="btn-daftar">
-                Daftar Sekarang <i class="fas fa-arrow-right"></i>
+                Daftar PPDB <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     </section>
@@ -247,11 +295,8 @@
             <div class="icon-box"><i class="fas fa-book ic-4"></i></div>
             <span class="menu-label">Materi</span>
         </a>
-        <a href="biodata/index.html" class="menu-item">
-            <div class="icon-box"><i class="fas fa-id-card ic-2"></i></div>
-            <span class="menu-label">Biodata</span>
-        </a>
-        <a href="kelompok.html" class="menu-item">
+        
+        <a href="developer.html" class="menu-item">
             <div class="icon-box"><i class="fas fa-users ic-1"></i></div>
             <span class="menu-label">Tim</span>
         </a>
@@ -261,10 +306,10 @@
         </a>
     </div>
 
-    <section>
+    <section id="materi">
         <div class="section-title">
             <span>Program Unggulan</span>
-            <a href="#" class="see-all">Lihat Semua</a>
+            <a href="#" class="see-all">Lihat</a>
         </div>
         <div class="horizontal-scroll">
             <div class="program-card-mini">
@@ -279,8 +324,8 @@
             </div>
             <div class="program-card-mini">
                 <div class="mini-icon"><i class="fas fa-code"></i></div>
-                <h3>Coding</h3>
-                <span>Web Dev</span>
+                <h3>Web & IoT</h3>
+                <span>Coding</span>
             </div>
             <div class="program-card-mini">
                 <div class="mini-icon"><i class="fas fa-tools"></i></div>
@@ -292,17 +337,78 @@
 
     <section>
         <div class="section-title">
-            <span>Info Terbaru</span>
+            <span>Prospek Karir</span>
+        </div>
+        <div class="career-grid">
+            <div class="career-card">
+                <i class="fas fa-network-wired"></i>
+                <span>Network Engineer</span>
+            </div>
+            <div class="career-card">
+                <i class="fas fa-server"></i>
+                <span>System Admin</span>
+            </div>
+            <div class="career-card">
+                <i class="fas fa-headset"></i>
+                <span>IT Support</span>
+            </div>
+            <div class="career-card">
+                <i class="fas fa-store"></i>
+                <span>Wirausaha</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title">
+            <span>Tim & Anggota</span>
+            <a href="kelompok.html" class="see-all">Detail <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="team-scroll">
+            <div class="team-card-mini">
+                <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                <div class="team-info">
+                    <h4>Ketua Tim</h4>
+                    <p>Lead Dev</p>
+                </div>
+            </div>
+            <div class="team-card-mini">
+                <div class="team-avatar"><i class="fas fa-user-astronaut"></i></div>
+                <div class="team-info">
+                    <h4>Anggota 1</h4>
+                    <p>Designer</p>
+                </div>
+            </div>
+            <div class="team-card-mini">
+                <div class="team-avatar"><i class="fas fa-laptop-code"></i></div>
+                <div class="team-info">
+                    <h4>Anggota 2</h4>
+                    <p>Programmer</p>
+                </div>
+            </div>
+             <div class="team-card-mini">
+                <div class="team-avatar"><i class="fas fa-wrench"></i></div>
+                <div class="team-info">
+                    <h4>Anggota 3</h4>
+                    <p>Tester</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="section-title">
+            <span>Pintasan</span>
         </div>
         <div class="vertical-list">
-            <a href="kelompok.html" style="text-decoration:none; color:inherit;">
+            <a href="developer.html" style="text-decoration:none; color:inherit;">
                 <div class="info-card">
                     <div class="info-thumb" style="background:#eef2ff; color:#4f46e5;">
-                        <i class="fas fa-laptop-code"></i>
+                        <i class="fas fa-users-cog"></i>
                     </div>
                     <div class="info-text">
                         <h4>Tim Developer Website</h4>
-                        <p>Kenalan dengan pembuat web ini</p>
+                        <p>Lihat profil lengkap anggota</p>
                     </div>
                     <i class="fas fa-chevron-right arrow-right"></i>
                 </div>
@@ -323,6 +429,21 @@
         </div>
     </section>
 
+    <footer class="app-footer">
+        <p class="footer-address">
+            <i class="fas fa-map-marker-alt"></i> Jl. Tawes 21 Polos Yosodadi,<br>Metro Timur, Kota Metro.<br>
+            <i class="fas fa-envelope"></i> smkmutumetro@gmail.com
+        </p>
+        
+        <div class="social-links">
+            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <p class="copyright">&copy; 2024 TKJ SMK Muhammadiyah 1 Metro.</p>
+    </footer>
+
     <nav class="bottom-nav">
         <a href="#" class="nav-item active">
             <i class="fas fa-home"></i>
@@ -339,7 +460,7 @@
             </div>
         </a>
 
-        <a href="kelompok.html" class="nav-item">
+        <a href="developer.html" class="nav-item">
             <i class="fas fa-user-friends"></i>
             <span>Tim</span>
         </a>
@@ -350,6 +471,7 @@
     </nav>
 
     <script>
+        // Jam Realtime
         function updateClock() {
             const now = new Date();
             const options = { weekday: 'long', day: 'numeric', month: 'short' };
@@ -359,11 +481,13 @@
         setInterval(updateClock, 1000);
         updateClock();
 
+        // Navigasi Aktif
         const navItems = document.querySelectorAll('.nav-item');
         navItems.forEach(item => {
             item.addEventListener('click', function() {
-                navItems.forEach(nav => nav.classList.remove('active'));
+                // Jangan ubah class active jika yang diklik adalah tombol tengah (PPDB)
                 if(!this.querySelector('.nav-item-center')) {
+                    navItems.forEach(nav => nav.classList.remove('active'));
                     this.classList.add('active');
                 }
             });
