@@ -57,6 +57,7 @@ section { padding: 80px 0; }
 
 /* --- 3. TOP BAR & CLOCK --- */
 .top-bar {
+    
     background-color: var(--muho-blue-dark);
     color: var(--white);
     font-size: 0.85rem;
